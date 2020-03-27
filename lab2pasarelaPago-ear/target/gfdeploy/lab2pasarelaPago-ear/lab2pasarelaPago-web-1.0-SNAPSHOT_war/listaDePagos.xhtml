@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Listado de Pagos</title>
+    </h:head>
+    <h:body>
+        Aqui se listan todos los pagos
+        
+        
+        <p:panel id="lista" header="Lista de clientes">
+             <h:form>
+                 <p:dataTable value="#{pagoMBean.pagos}" style="margin-bottom:20px"
+                             var="item"
+                             paginator="true"
+                             rows="10"
+                             scrollable="true"
+                             scrollWidth="150%"
+                             scrollHeight="950"
+                             rendered="true"
+                             resizableColumns="true"
+                             sortMode="multiple"
+                             emptyMessage="No hay datos"
+                             widgetVar="pagoTable"
+                             rowStyleClass="#{item.valorPago le 60000 ? 'old':null}" >
+                     
+                             <p:column headerText="CustomerId"
+                                       sortBy="#{item.idPago}"
+                              filterBy="#{item.idPago}"
+                              filterMatchMode="contains" >
+                              <h:commandLink action="#{customerMBean.showDetails(item)}"
+                                             value="#{item.idPago}"/>
+                              </p:column>
+                     
+                            <p:column headerText="Qr Code" >
+                                <p:barcode value="#{item.idCliente} #{item.nomCliente} #{item.emailCliente} #{item.fechaPago} #{item.valorPago} #{item.refPago}"
+                                           type="qr" height="150px" width="150px" />
+                            </p:column>
+                           
+                            
+                            
+                 </p:dataTable>
+             </h:form>
+         </p:panel>
+        
+    </h:body>
+</html>
+

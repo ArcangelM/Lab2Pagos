@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="2.2"
+              xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+    <managed-bean>
+        <managed-bean-name>pagoMBean</managed-bean-name>
+        <managed-bean-class>com.udea.controller.PagoMBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <navigation-rule>
+        <from-view-id>/pago.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>CONFIRMADO</from-outcome>
+            <to-view-id>/resultadoPago.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>case2</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/resultadoPago.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>INICIO</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>PAGOS</from-outcome>
+            <to-view-id>/listaDePagos.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/index.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>PAGAR</from-outcome>
+            <to-view-id>/pago.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>PAGOS</from-outcome>
+            <to-view-id>/listaDePagos.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+</faces-config>
