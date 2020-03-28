@@ -12,10 +12,10 @@
     </h:head>
     <h:body>
        
-        ${beanValidationView.saludo}
+        
         
         <h:form>
-            <p:panel header="Validate">
+            <p:panel header="GENERACION DE PAGOS">
                 <p:messages />
 
                 <h:panelGrid columns="4" cellpadding="5">
@@ -34,10 +34,16 @@
                     <p:message for="@previous" />
                     <h:outputText value="#{beanValidationView.email_cliente}" />
                     
-                    <p:outputLabel for="@next" value="Tarjeta de Credito:" />
-                    <p:inputText value="#{beanValidationView.num_tarjeta}" label="Num_tarjeta"/>
-                    <p:message for="@previous" />
-                    <h:outputText value="#{beanValidationView.num_tarjeta}" />
+                    <p:outputLabel for="@next" value="Numero Tarjeta: "  />
+                    <p:inputText id="counter" value="#{beanValidationView.num_tarjeta}">
+                        <p:ajax event="keyup" update="out" listener="#{beanValidationView.handleKeyEvent}" />
+                    </p:inputText>
+                    <h:graphicImage id="out" value="#{beanValidationView.imagen}"/>
+                     <p:message for="@previous" />
+                    
+                    
+                    
+                    
                     
                     <p:outputLabel for="@next" value="CSV:" />
                     <p:inputText value="#{beanValidationView.csv_tarjeta}" label="CSV"/>
@@ -49,22 +55,27 @@
                     <p:message for="@previous" />
                     <h:outputText value="#{beanValidationView.expiracion_tarj}" />
                     
-                    <p:outputLabel for="@next" value="Tipo Tarjeta:" />
-                    <p:inputText value="#{beanValidationView.tipo_tarjeta}" label="Tipo"/>
-                    <p:message for="@previous" />
-                    <h:outputText value="#{beanValidationView.tipo_tarjeta}" />
-                    
                     <p:outputLabel for="@next" value="Valor Pago:" />
                     <p:inputText value="#{beanValidationView.valor_pago}" label="Pago"/>
                     <p:message for="@previous" />
                     <h:outputText value="#{beanValidationView.valor_pago}" />
 
+                    <!--
+                    <p:messages showDetail="true"/>
+                    <p:captcha label="Captcha" />
+                    <br />
+                    -->
+                    
+
                 </h:panelGrid>
 
-                <p:commandButton value="Save" ajax="false" icon="pi pi-check" validateClient="true" action="#{beanValidationView.crearPago()}"/>
-            </p:panel>
+                <p:commandButton value="Check" ajax="false" icon="pi pi-check" validateClient="true" action="#{beanValidationView.crearPago()}"/>
+                </p:panel>
         </h:form>
-
+        <h:form>
+            <p:commandButton value="Cancel" ajax="false" icon="pi pi-sign-out" validateClient="false" action="#{beanValidationView.cancelar()}"/>
+           
+        </h:form>
     </h:body>
 </html>
 

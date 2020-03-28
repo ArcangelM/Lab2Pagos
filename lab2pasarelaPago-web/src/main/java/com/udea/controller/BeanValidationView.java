@@ -13,6 +13,9 @@ import java.util.Date;
 
 import java.util.List;
 import javax.ejb.EJB;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
+import javax.inject.Named;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -22,6 +25,7 @@ import javax.validation.constraints.Size;
  *
  * @author arcangelmarinp
  */
+@Named
 public class BeanValidationView implements Serializable{
 @EJB
     private com.udea.session.PagoManagerLocal pagoManager;
@@ -32,7 +36,17 @@ public class BeanValidationView implements Serializable{
     
     private Pago pago; //para mostrar, actualizar o insertar en el formulario
 
+    private String imagen;
     
+    private int tipoTarjeta;
+    
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
     
     private List<Pago> pagos; //para visualizar en la tabla
     private String saludo= "hola esto es un saludo";
@@ -49,7 +63,7 @@ public class BeanValidationView implements Serializable{
     @Size(min=7,max=60)
     private String email_cliente;
     
-     @Size(min=16,max=16)
+     @Size(min=5,max=16)
     private String num_tarjeta;
     
      @Size(min=3,max=3)
@@ -167,7 +181,9 @@ public class BeanValidationView implements Serializable{
     }
     
      public String crearPago(){
-         
+      /*validando el captcha*/
+        FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Correct", "Correct");
+        FacesContext.getCurrentInstance().addMessage(null, msg); 
      /*se crea fecha actual*/
      
      LocalDateTime locaDate = LocalDateTime.now();
@@ -199,6 +215,44 @@ public class BeanValidationView implements Serializable{
         return "CONFIRMADO";
      }
     
+     public String cancelar(){
+     
+     return "VOLVER";
+     }
+     
+     public void handleKeyEvent() {
+         
+         if (num_tarjeta.length()>=5){
+             /*obtengo los primeros 5 digtos de la subcadena*/
+             String subcadena = num_tarjeta.substring(0,5);
+             int valor;
+             valor = Integer.parseInt(subcadena);
+             if (valor >= 11111 && valor<=22222){
+                   tipo_tarjeta="AMERICAN EXPRESS";
+                   this.imagen="img/american.png";
+                   subcadena="";
+             }else if(valor >= 33333 && valor<=44444){
+                   tipo_tarjeta="DINERS";
+                   this.imagen="img/diners.png";
+                   subcadena="";
+             }else if(valor >= 55555 && valor<=66666){
+                   tipo_tarjeta="VISA";
+                   this.imagen="img/visa.png";
+                   subcadena="";
+             }else if(valor >= 77777 && valor<=88888){
+                   tipo_tarjeta="MASTERCARD";
+                   this.imagen="img/mastercard.png";
+                   subcadena="";
+             }else{
+                    tipo_tarjeta="OTRA";
+                   this.imagen="img/otra.png";
+                   subcadena="";
+             }
+             
+         }
+        
+        
+     }
     
     public BeanValidationView() {
     }
