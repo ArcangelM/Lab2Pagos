@@ -44,6 +44,11 @@
                     <p:message for="@previous" />
                     <h:outputText value="#{beanValidationView.csv_tarjeta}" />
                     
+                    <p:outputLabel for="@next" value="Fecha Expiración:" />
+                    <p:inputText value="#{beanValidationView.expiracion_tarj}" label="expiracion"/>
+                    <p:message for="@previous" />
+                    <h:outputText value="#{beanValidationView.expiracion_tarj}" />
+                    
                     <p:outputLabel for="@next" value="Tipo Tarjeta:" />
                     <p:inputText value="#{beanValidationView.tipo_tarjeta}" label="Tipo"/>
                     <p:message for="@previous" />
@@ -56,7 +61,7 @@
 
                 </h:panelGrid>
 
-                <p:commandButton value="Save" ajax="false" icon="pi pi-check" validateClient="true"/>
+                <p:commandButton value="Save" ajax="false" icon="pi pi-check" validateClient="true" action="#{beanValidationView.crearPago()}"/>
             </p:panel>
         </h:form>
 

@@ -1,12 +1,51 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Confirmacion Pago</title>
+        <style type="text/css">
+            .ui-panel {
+                margin: 15px;
+                width: 300px;
+            }
+        </style>
     </h:head>
     <h:body>
-        Aqui Confirmamos los pagos
+        <p:barcode value="#{beanValidationView.pago.idCliente} #{beanValidationView.pago.valorPago} #{beanValidationView.pago.refPago}"
+                                           type="qr" height="150px" width="150px" />
+        <p:outputPanel id="restrictPanel" layout="block" style="width:400px;height:200px;border:1px solid #666666;margin-bottom:20px">
+            <p:panel id="conpnl" header="PAGO EXITOSO!">
+                
+                <p:panel id="pnl" header="Id Cliente:">
+                    <h:outputText value="#{beanValidationView.pago.idCliente}" />
+                </p:panel>
+                <p:draggable for="pnl" />
+                
+                <p:panel id="pnl2" header="Valor Pagado:">
+                    <h:outputText value="#{beanValidationView.pago.valorPago}" />
+                </p:panel>
+                <p:draggable for="pnl2" />
+                
+                <p:panel id="pnl3" header="Fecha:">
+                    <h:outputText value="#{beanValidationView.pago.fechaPago}" />
+                </p:panel>
+                <p:draggable for="pnl3" />
+                
+                <p:panel id="pnl4" header="Referencia Pago:">
+                    <h:outputText value="#{beanValidationView.pago.refPago}" />
+                </p:panel>
+                <p:draggable for="pnl4" />
+            </p:panel>
+        </p:outputPanel>
+        
+        <p:draggable for="conpnl" containment="parent" />
+
+        
+        
+        
+        
     </h:body>
 </html>
 

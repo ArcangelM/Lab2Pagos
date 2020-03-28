@@ -17,5 +17,7 @@ import javax.ejb.Local;
 public interface PagoManagerLocal {
 
     List<Pago> getAllPagos();
+
+    void create(Pago pago);
     
 }

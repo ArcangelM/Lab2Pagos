@@ -7,7 +7,10 @@ package com.udea.controller;
 
 import com.udea.entity.Pago;
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.Date;
+
 import java.util.List;
 import javax.ejb.EJB;
 import javax.validation.constraints.Max;
@@ -28,6 +31,9 @@ public class BeanValidationView implements Serializable{
      */
     
     private Pago pago; //para mostrar, actualizar o insertar en el formulario
+
+    
+    
     private List<Pago> pagos; //para visualizar en la tabla
     private String saludo= "hola esto es un saludo";
     
@@ -63,6 +69,16 @@ public class BeanValidationView implements Serializable{
      
    private String ref_pago;
       
+   
+   public Pago getPago() {
+        return pago;
+    }
+
+    public void setPago(Pago pago) {
+        this.pago = pago;
+    }
+   
+   
     public String getId_cliente() {
         return id_cliente;
     }
@@ -150,7 +166,38 @@ public class BeanValidationView implements Serializable{
         this.pagos = pagoManager.getAllPagos();
     }
     
+     public String crearPago(){
+         
+     /*se crea fecha actual*/
      
+     LocalDateTime locaDate = LocalDateTime.now();
+        int day= locaDate.getDayOfMonth();
+        int month = locaDate.getMonthValue();
+        int year=locaDate.getYear();
+        int hours  = locaDate.getHour();
+        int minutes = locaDate.getMinute();
+        int seconds = locaDate.getSecond();
+        /*Se crea Referencia de pago a partir de la fecha y tiempo actual mas id del cliente*/
+     ref_pago=day+""+month+""+year+""+hours+""+minutes+""+seconds+id_cliente;
+     fecha_pago=day+"-"+month+"-"+year;
+     Pago pagoAcrear = new Pago();
+     
+     pagoAcrear.setIdCliente(id_cliente);
+     pagoAcrear.setNomCliente(nom_cliente);
+     pagoAcrear.setEmailCliente(email_cliente);
+     pagoAcrear.setNumTarjeta(num_tarjeta);
+     pagoAcrear.setCsvTarjeta(csv_tarjeta);
+     pagoAcrear.setExpiracionTarj(expiracion_tarj);
+     pagoAcrear.setTipoTarjeta(tipo_tarjeta);
+     pagoAcrear.setValorPago(valor_pago);
+     pagoAcrear.setRefPago(ref_pago);
+     pagoAcrear.setFechaPago(fecha_pago);
+     
+     pagoManager.create(pagoAcrear);
+     
+     this.pago=pagoAcrear;
+        return "CONFIRMADO";
+     }
     
     
     public BeanValidationView() {
