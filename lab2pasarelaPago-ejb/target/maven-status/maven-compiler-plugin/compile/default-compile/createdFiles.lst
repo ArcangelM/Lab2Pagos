@@ -1,1 +1,5 @@
-com/udea/NewSessionBean.class
+com\udea\session\PagoManagerLocal.class
+com\udea\entity\Pago_.class
+com\udea\NewSessionBean.class
+com\udea\entity\Pago.class
+com\udea\session\PagoManager.class

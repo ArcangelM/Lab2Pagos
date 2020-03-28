@@ -5,23 +5,16 @@
       xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Listado de Pagos</title>
+        <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-oAOxQR6DkCoMliIh8yFnu25d7Eq/PHS21PClpwjOTeU2jRSq11vu66rf90/cZr47" crossorigin="anonymous"></link>
     </h:head>
     <h:body>
-        Aqui se listan todos los pagos
-        
-        
         <p:panel id="lista" header="LISTADO DE TODOS LOS PAGOS">
              <h:form>
                  <p:dataTable value="#{pagoMBean.pagos}" style="margin-bottom:20px"
-                             var="item"
+                             
+                            var="item"
                              paginator="true"
-                             rows="10"
-                             scrollable="true"
-                             scrollWidth="150%"
-                             scrollHeight="950"
-                             rendered="true"
-                             resizableColumns="true"
-                             sortMode="multiple"
+                             reflow="true"
                              emptyMessage="No hay datos"
                              widgetVar="pagoTable"
                              rowStyleClass="#{item.valorPago le 60000 ? 'old':null}" >
