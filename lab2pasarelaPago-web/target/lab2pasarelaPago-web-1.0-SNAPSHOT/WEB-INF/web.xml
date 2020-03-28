@@ -21,6 +21,7 @@
     <welcome-file-list>
         <welcome-file>faces/listaDePagos.xhtml</welcome-file>
     </welcome-file-list>
+  
     <context-param>
         <param-name>primefaces.PUBLIC_CAPTCHA_KEY</param-name>
         <param-value>6LdTX-QUAAAAAHG8COBAHD6roz0fdw4nwKA5HzIi</param-value>
@@ -30,7 +31,7 @@
         <param-name>primefaces.PRIVATE_CAPTCHA_KEY</param-name>
         <param-value>6LdTX-QUAAAAAA_Ci_XMzHM7z_5ug_VvgvPzzbUm</param-value>
     </context-param>
-    
+  
     <listener>
     <listener-class>com.sun.faces.config.ConfigureListener</listener-class>
     </listener>

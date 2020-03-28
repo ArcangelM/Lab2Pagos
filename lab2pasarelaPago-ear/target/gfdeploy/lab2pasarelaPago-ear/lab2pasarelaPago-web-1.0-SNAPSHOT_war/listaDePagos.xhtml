@@ -10,7 +10,7 @@
         Aqui se listan todos los pagos
         
         
-        <p:panel id="lista" header="Lista de clientes">
+        <p:panel id="lista" header="LISTADO DE TODOS LOS PAGOS">
              <h:form>
                  <p:dataTable value="#{pagoMBean.pagos}" style="margin-bottom:20px"
                              var="item"
@@ -25,22 +25,39 @@
                              emptyMessage="No hay datos"
                              widgetVar="pagoTable"
                              rowStyleClass="#{item.valorPago le 60000 ? 'old':null}" >
-                     
-                             <p:column headerText="CustomerId"
-                                       sortBy="#{item.idPago}"
-                              filterBy="#{item.idPago}"
-                              filterMatchMode="contains" >
-                              <h:commandLink action="#{customerMBean.showDetails(item)}"
-                                             value="#{item.idPago}"/>
-                              </p:column>
-                     
+                            
                             <p:column headerText="Qr Code" >
                                 <p:barcode value="#{item.idCliente} #{item.nomCliente} #{item.emailCliente} #{item.fechaPago} #{item.valorPago} #{item.refPago}"
                                            type="qr" height="150px" width="150px" />
                             </p:column>
-                           
-                            
-                            
+                     
+                            <p:column headerText="Ref Pago">
+                             <h:outputText value="#{item.refPago}" />
+                            </p:column>
+                             <p:column headerText="Id Pago"
+                                       sortBy="#{item.idPago}"
+                              filterBy="#{item.idPago}"
+                              filterMatchMode="contains" >
+                              <h:commandLink action="#{pagoMBean.showDetails(item)}"
+                                             value="#{item.idPago}"/>
+                              </p:column>
+                              
+                             
+                     <p:column headerText="Nombre Clienter">
+                     <h:outputText value="#{item.nomCliente}" />
+                     </p:column>      
+                     
+                     <p:column headerText="Id Clienter">
+                     <h:outputText value="#{item.idCliente}" />
+                     </p:column>
+                     
+                     
+                     <p:column headerText="Valor">
+                     <h:outputText value="#{item.nomCliente}" />
+                     </p:column>
+                     <p:column headerText="Fecha">
+                         <h:outputText value="#{item.fechaPago}" />
+                     </p:column>
                  </p:dataTable>
              </h:form>
          </p:panel>

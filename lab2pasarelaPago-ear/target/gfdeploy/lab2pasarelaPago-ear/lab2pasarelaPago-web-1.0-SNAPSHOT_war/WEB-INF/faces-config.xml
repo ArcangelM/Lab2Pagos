@@ -41,4 +41,16 @@
             <to-view-id>/listaDePagos.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/listaDePagos.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>PAGAR</from-outcome>
+            <to-view-id>/pago.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <managed-bean>
+        <managed-bean-name>beanValidationView</managed-bean-name>
+        <managed-bean-class>com.udea.controller.BeanValidationView</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
 </faces-config>

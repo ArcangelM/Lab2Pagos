@@ -44,12 +44,20 @@ public class PagoMBean implements Serializable {
         return pagos;
     }
     
+    public Pago getDetails() {
+        return pago;
+    }
+    public Pago getPago() {
+        return pago;
+    }
+    
     private void refresh() {
         this.pagos = pagoManager.getAllPagos();
     }
     
     public String showDetails(Pago pago) {
         this.pago = pago;
-        return "CONFIRMADO"; // Permite enlazar a CustomerDetails.xml
+        
+        return "PAGAR"; // Permite enlazar a CustomerDetails.xml
     }
 }
