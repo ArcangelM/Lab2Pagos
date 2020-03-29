@@ -3,16 +3,66 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
       
       <h:head>
         
         
         <title>Pago</title>
+        
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+        <meta name="description" content=""/>
+        <meta name="author" content=""/>
+        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css"/>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css"/>
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'/>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'/>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'/>
+
+    <!-- Custom styles for this template -->
+    <link href="css/agency.min.css" rel="stylesheet"/>
     </h:head>
-    <h:body>
+    <h:body id="page-top">
+      
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top">PASARELA DE PAGO</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav text-uppercase ml-auto">
+           
+                    <li class="nav-item">
+                        <p:link outcome="#{beanValidationView.cancelar()}" class="nav-link js-scroll-trigger" value="INICIO"/>
+                        
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
        
         
+        <section class="bg-light page-section" id="team">
+        <div class="container">
+            <div class="row">
+                <div class="container">
+            <div class="intro-text">
+                
+                    <h:graphicImage  value="img/googlepay.png"/>
+                
+                <h2 class="section-heading text-uppercase">REALICE SU PAGO</h2>
+                    <h3 class="section-subheading text-muted">Acontinuacion ingrese la informacion del pago:</h3>
+        </div>
+        </div>
+                
+                <div class="col-lg-12 text-center">
         
         <h:form>
             <p:panel header="GENERACION DE PAGOS">
@@ -69,13 +119,46 @@
 
                 </h:panelGrid>
 
-                <p:commandButton value="Check" ajax="false" icon="pi pi-check" validateClient="true" action="#{beanValidationView.crearPago()}"/>
+                <p:commandButton class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" value="Enviar Pago" ajax="false"  validateClient="true" action="#{beanValidationView.crearPago()}"/>
                 </p:panel>
         </h:form>
         <h:form>
-            <p:commandButton value="Cancel" ajax="false" icon="pi pi-sign-out" validateClient="false" action="#{beanValidationView.cancelar()}"/>
+             
+            <p:commandButton class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" value="Cancelar" ajax="false"  validateClient="false" action="#{beanValidationView.cancelar()}"/>
            
         </h:form>
+                    
+   </div>
+        
+            </div>
+        </div>
+        </section>    
+        
+        <!-- Footer -->
+    <footer class="footer bg-dark">
+        <div class="container">
+            <div class="row justify-content-md-center">
+                <div class="col-md-4">
+                    <span class="copyright">Copyright &copy; LAB2 ARQUISOFTWARE 2020</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Contact form JavaScript -->
+    <script src="js/jqBootstrapValidation.js"></script>
+    <script src="js/contact_me.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="js/agency.min.js"></script>                  
     </h:body>
 </html>
 

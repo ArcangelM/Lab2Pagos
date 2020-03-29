@@ -1,7 +1,8 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
         <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
@@ -35,10 +36,12 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav text-uppercase ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#services">Realizar un pago</a>
+                        <p:link outcome="#{pagoMBean.listPagos()}" class="nav-link js-scroll-trigger" value="Consultar Pagos"/>
+                        
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#portfolio">Consultar pagos</a>
+                        <p:link outcome="#{pagoMBean.pagar()}" class="nav-link js-scroll-trigger" value="Realizar Pago"/>
+                        
                     </li>
                 </ul>
             </div>
@@ -52,8 +55,12 @@
                 <div class="intro-lead-in">Realiza y consulta pagos de manera simple en</div>
                 <div class="intro-heading text-uppercase">FACILPAGOS</div>
                 <!-- <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a> Botón original-->
-                <button class="btn btn-primary btn-xl text-uppercase js-scroll-trigger">Realizar un pago</button>
-                <button class="btn btn-primary btn-xl text-uppercase js-scroll-trigger">Consultar pagos</button>
+                <h:form>
+            <p:commandButton class="btn btn-primary btn-xl text-uppercase js-scroll-trigger"  value="Realizar un Pago" ajax="false" action="#{pagoMBean.pagar()}"/>
+            <p:commandButton class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" value="Consultar Pagos" ajax="false" action="#{pagoMBean.listPagos()}"/>
+            
+            </h:form>
+               
             </div>
         </div>
     </header>
@@ -260,7 +267,7 @@
         <div class="container">
             <div class="row justify-content-md-center">
                 <div class="col-md-4">
-                    <span class="copyright">Copyright &copy; Your Website 2019</span>
+                    <span class="copyright">Copyright &copy; LAB2 ARQUISOFTWARE 2020</span>
                 </div>
             </div>
         </div>

@@ -58,6 +58,21 @@ public class PagoMBean implements Serializable {
     public String showDetails(Pago pago) {
         this.pago = pago;
         
-        return "PAGAR"; // Permite enlazar a CustomerDetails.xml
+        return "PAGAR"; // Permite enlazar a pago.xhtml
+    }
+    
+    public String pagar() {
+        
+        return "PAGAR"; // Permite enlazar a pago.xhtml
+    }
+
+    
+    public String listPagos() {
+        
+        return "PAGOS"; // Permite enlazar a pago.xhtml
+    }
+   
+    public String volverPagos(){
+    return "VOLVERAPAGOS";
     }
 }

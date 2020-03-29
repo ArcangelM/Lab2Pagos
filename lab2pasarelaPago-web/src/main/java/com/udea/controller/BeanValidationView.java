@@ -219,6 +219,10 @@ public class BeanValidationView implements Serializable{
      
      return "VOLVER";
      }
+     public String alInicio(){
+     
+     return "INICIO";
+     }
      
      public void handleKeyEvent() {
          
