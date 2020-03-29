@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 com\udea\session\PagoManagerLocal.class
 com\udea\entity\Pago_.class
 com\udea\NewSessionBean.class
 com\udea\entity\Pago.class
 com\udea\session\PagoManager.class
+=======
+com\udea\NewSessionBean.class
+>>>>>>> 702bd4cefa7640063a42bb900bf83cd827605418

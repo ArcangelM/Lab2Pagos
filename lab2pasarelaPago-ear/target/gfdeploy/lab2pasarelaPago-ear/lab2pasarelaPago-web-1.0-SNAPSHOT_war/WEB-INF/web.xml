@@ -4,7 +4,11 @@
         <param-name>javax.faces.PROJECT_STAGE</param-name>
         <param-value>Development</param-value>
     </context-param>
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 702bd4cefa7640063a42bb900bf83cd827605418
     <context-param>
         <param-name>primefaces.THEME</param-name>
         <param-value>afterdark</param-value>
@@ -24,7 +28,7 @@
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>faces/listaDePagos.xhtml</welcome-file>
+        <welcome-file>faces/index.xhtml</welcome-file>
     </welcome-file-list>
   
     <context-param>
