@@ -7,21 +7,13 @@
         <title>Listado de Pagos</title>
     </h:head>
     <h:body>
-        Aqui se listan todos los pagos
-        
         
         <p:panel id="lista" header="LISTADO DE TODOS LOS PAGOS">
              <h:form>
                  <p:dataTable value="#{pagoMBean.pagos}" style="margin-bottom:20px"
                              var="item"
                              paginator="true"
-                             rows="10"
-                             scrollable="true"
-                             scrollWidth="150%"
-                             scrollHeight="950"
-                             rendered="true"
-                             resizableColumns="true"
-                             sortMode="multiple"
+                             reflow="true"
                              emptyMessage="No hay datos"
                              widgetVar="pagoTable"
                              rowStyleClass="#{item.valorPago le 60000 ? 'old':null}" >
